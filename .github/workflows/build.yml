@@ -13,6 +13,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: download build wrapper
+        run: wget http://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
+      - name: unzip build wrapper
+        run: unzip ./build-wrapper-linux-x86.zip
+      - name: run build wrapper
+        run: ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory make clean all
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
