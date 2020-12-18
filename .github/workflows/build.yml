@@ -20,7 +20,7 @@ jobs:
       - name: run configure
         run: ./Configure
       - name: run build wrapper
-        run: ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory make clean all
+        run: ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory make clean build_sw
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
